@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import React from 'react'
 
@@ -35,11 +36,14 @@ const Navbar = () => {
     }
   ]
   return (
-    <div>
-      <Link href='/'>NextJS</Link>
-      <div>{links.map(link => (
-        <Link key={link.id} href={link.url}>{link.title}</Link>
-      ))}</div>
+    <div className='h-[100px] flex justify-between items-center'>
+      <Link href='/' className='text-[22px] font-semibold'>NextJS</Link>
+      <div className='flex items-center gap-5'>
+        {links.map(link => (
+          <Link key={link.id} href={link.url}>{link.title}</Link>
+        ))}
+        <button onClick={() => { console.log("logout")}} className='p-[5px] bg-green-600 text-white pointer rounded-sm text-sm'>Logout</button>
+      </div>
     </div>
   )
 }
